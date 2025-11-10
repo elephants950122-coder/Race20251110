@@ -9,11 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun GameScreen(message: String) {
+fun GameScreen(message: String, gameViewModel: GameViewModel) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Yellow)
     ){
-        Text(text = message)
+        Text(text = message + gameViewModel.screenWidthPx.toString() + "*"
+                + gameViewModel.screenHeightPx.toString())
     }
 }
