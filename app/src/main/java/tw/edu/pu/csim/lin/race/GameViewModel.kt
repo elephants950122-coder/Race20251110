@@ -39,7 +39,7 @@ class GameViewModel: ViewModel() {
         finishLineX = w - 300f
 
         for(i in 0..2){
-            horses.add(Horse(i))
+            horses.add(Horse(n = i))
         }
     }
 
