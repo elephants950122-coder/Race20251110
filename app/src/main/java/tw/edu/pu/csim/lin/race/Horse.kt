@@ -1,8 +1,8 @@
 package tw.edu.pu.csim.lin.race
 
-class Horse(){
+class Horse(n:Int){
     var HorseX = 0
-    var HorseY = 100
+    var HorseY = 100 + 320 * n
 
     var HorseNo = 0
 
