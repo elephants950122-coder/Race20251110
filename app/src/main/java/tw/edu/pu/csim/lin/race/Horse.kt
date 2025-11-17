@@ -14,5 +14,9 @@ class Horse(n:Int){
 
         HorseX += (10..30).random()
     }
+    fun Reset() {
+        HorseX = 0
+        HorseNo = 0
+    }
 
 }

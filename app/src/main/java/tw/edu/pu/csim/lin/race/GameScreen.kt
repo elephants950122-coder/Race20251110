@@ -8,7 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -37,14 +42,14 @@ fun GameScreen(message: String, gameViewModel: GameViewModel) {
         .fillMaxSize()
         .background(Color.Yellow)
     ){
-        Text(
+        /*Text(
             text = "分數：${gameViewModel.score}",
             fontSize = 28.sp,
             color = Color.Black,
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 16.dp)
-        )
+        )*/
 
         Canvas (modifier = Modifier.fillMaxSize()
             .pointerInput(Unit) {
@@ -72,6 +77,15 @@ fun GameScreen(message: String, gameViewModel: GameViewModel) {
             }
         }
 
+        if (gameViewModel.winner != 0) {
+            Text(
+                text = "第 ${gameViewModel.winner} 匹馬獲勝！",
+                fontSize = 50.sp,
+                color = Color.Red,
+                modifier = Modifier.align(Alignment.TopCenter)
+            )
+        }
+
         Text(text = message + gameViewModel.screenWidthPx.toString() + "*"
                 + gameViewModel.screenHeightPx.toString())
 
@@ -83,5 +97,14 @@ fun GameScreen(message: String, gameViewModel: GameViewModel) {
         ){
             Text(text = "遊戲開始")
         }
+
+        /*var user by remember { mutableStateOf("") }
+        TextField(
+            value = user,
+            onValueChange = { user = it },
+            label = { Text("賽馬") },
+            placeholder = { Text("猜猜哪匹馬獲勝?") }
+        )
+        Text("您預測獲勝的馬是：$user")*/
     }
 }
