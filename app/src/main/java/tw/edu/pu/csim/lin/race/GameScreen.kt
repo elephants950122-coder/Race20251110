@@ -55,7 +55,7 @@ fun GameScreen(message: String, gameViewModel: GameViewModel) {
             .pointerInput(Unit) {
                 detectDragGestures { change, dragAmount ->
                     change.consume() // 告訴系統已經處理了這個事件
-                    gameViewModel.MoveCircle( dragAmount.x, dragAmount.y)
+                    gameViewModel.MoveCircle( x = dragAmount.x, dragAmount.y)
                 }
             }
         ) {
